@@ -1,61 +1,43 @@
 # Trading Advisor
 
-> ⚠️ **Currently in active development. Code will be published as modules are completed.**
+A browser-based AI trading advisor dashboard — the "Day Trader's Second Brain." Built as a single-file HTML app with a dark terminal aesthetic, Chart.js visualizations, and a conversational interface grounded in day trading methodology.
 
-A conversational AI trading advisor agent built on a RAG (Retrieval-Augmented Generation) architecture. Uses *Day Trading 101* by David Borman as the core knowledge base, supplemented by real-time market data feeds and broker integrations.
+Open `trading-agent.html` directly in any browser. No server, no install, no dependencies beyond what loads from CDN.
 
-## Concept
+## Features
 
-The system operates as a dialogue-driven advisor — you describe your position, risk tolerance, or a market scenario, and the agent retrieves relevant strategy context from the knowledge base, cross-references live data, and surfaces actionable insights grounded in established day trading methodology rather than hallucinated generalities.
+- **Conversational advisor interface** — Ask questions about setups, risk, entries, exits and get structured responses grounded in day trading strategy
+- **Live chart panel** — Chart.js price visualization with configurable timeframes
+- **Sidebar navigation** — Organized sections for watchlist, positions, analysis, and strategy reference
+- **Dark terminal theme** — Green/red accent on near-black, built for extended screen time
+- **Knowledge base integration** — Responses reference Day Trading 101 (Borman) methodology rather than generic AI output
+- **Self-contained** — Single HTML file, runs entirely in browser
 
-## Planned Architecture
+## Usage
 
-```
-User Query
-    │
-    ▼
-[RAG Retrieval Layer]  ←──  Day Trading 101 knowledge base (chunked + embedded)
-    │
-    ▼
-[Market Data Layer]  ←──  Real-time price feeds (Alpaca / Polygon.io / yfinance)
-    │
-    ▼
-[AI Reasoning Layer]  ←──  Claude / local LLM
-    │
-    ▼
-[Broker Integration]  ←──  Alpaca paper trading → live
-    │
-    ▼
-Advisory Output + Execution Proposal
+```bash
+# Just open it
+start trading-agent.html        # Windows
+open trading-agent.html         # macOS
+xdg-open trading-agent.html     # Linux
 ```
 
-## Planned Features
+Or drag it into any browser window.
 
-- **RAG knowledge base** — Borman's Day Trading 101 chunked, embedded, and queryable
-- **Real-time data** — Price, volume, and options flow via market API
-- **Conversational interface** — Ask questions, get grounded, sourced answers
-- **Position analysis** — Input your current holdings and get risk/exit context
-- **Broker integration** — Alpaca API for paper trading and eventual live execution
-- **Multi-agent layer** — Separate analysis and execution agents with human approval gate
+## Tech Stack
 
-## Tech Stack (Planned)
+- Vanilla HTML / CSS / JavaScript
+- Chart.js 3.9.1 (CDN)
+- CSS custom properties for theming
+- No framework, no build step
 
-- Python, LangChain or custom RAG pipeline
-- Vector DB: Chroma or Qdrant
-- Market data: Alpaca Markets API, Polygon.io
-- LLM: Claude API + local Ollama fallback
-- Broker: Alpaca paper → live
+## Planned Enhancements
 
-## Status
-
-- [x] Architecture designed
-- [x] Knowledge base source identified
-- [ ] Document ingestion and embedding pipeline
-- [ ] RAG retrieval layer
-- [ ] Market data integration
-- [ ] Conversational interface
-- [ ] Broker API connection
-- [ ] Paper trading validation
+- [ ] RAG pipeline connecting to live knowledge base (LangChain + Chroma)
+- [ ] Real-time market data feed (Alpaca / Polygon.io API)
+- [ ] Broker integration for paper trading (Alpaca)
+- [ ] Local LLM backend option (Ollama) for offline use
+- [ ] Multi-agent layer — separate analysis and execution agents
 
 ## License
 
